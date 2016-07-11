@@ -1,0 +1,93 @@
+// Import custom Bootstrap variables
+@import "bootstrap-variables";
+// Import Bootstrap
+@import "bootstrap";
+// or Import Bootstrap Flex
+// @import "bootstrap-flex";
+// or Import Bootstrap Grid
+// @import "bootstrap-grid";
+// or Import Bootstrap Reboot
+// @import "bootstrap-reboot";
+
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+$header: 'Oswald', Arial, sans-serif;
+
+body {
+}
+
+a {
+    padding: 1px 3px;
+
+    &:focus,
+    &:hover {
+        color: #fff;
+        background: $brand-primary;
+    }
+}
+
+main {
+    margin-top: 30px;
+}
+
+#me {
+    h1 {
+        font-family: $header;
+        font-style: italic;
+        margin-bottom: 0;
+    }
+
+    .fa {
+        background: $brand-primary;
+        border-radius: 3px;
+        padding: 3px;
+    }
+
+    .email {
+        position: relative;
+        left: -3px; // offset anchor padding
+    }
+}
+
+h2 {
+    margin-top: 1em;
+}
+
+article {
+    margin-bottom: 2em;
+    .header {
+        @include clearfix();
+    }
+    h3 {
+        font-family: $header;
+        letter-spacing: 2px;
+        font-size: 1rem;
+        display: inline;
+    }
+
+    .labels {
+        display:inline-block;
+        margin-left: 1rem;
+    }
+    .more {
+        display: inline-block;
+        float: right;
+    }
+}
+
+.loc {
+    color: #aaa;
+    font-weight: normal;
+    font-style: italic;
+    font-family: serif;
+
+    &:after {
+        content: ' LOC';
+    }
+}
+
+footer {
+    margin-top: 2em;
+    text-align: right;
+    color: #999;
+}
