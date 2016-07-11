@@ -1,3 +1,4 @@
 $ compass watch
 https://github.com/twbs/bootstrap-rubygem
 
+$ compass compile -e production --force

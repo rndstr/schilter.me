@@ -86,8 +86,8 @@ $brand-primary: #e74c3c;
 //
 // Settings for the `<body>` element.
 
-$body-bg:                    #2b2937;
-$body-color:                 #fff;
+$body-bg:                    #fff;
+//$body-color:                 #fff;
 
 
 // Links
@@ -123,12 +123,10 @@ $link-hover-decoration:      none;
 //
 // Define the maximum width of `.container` for different screen sizes.
 
-// $container-max-widths: (
-//   sm: 576px,
-//   md: 720px,
-//   lg: 940px,
-//   xl: 1140px
-// );
+$container-max-widths: (
+  sm: 576px,
+  md: 720px
+);
 
 
 // Grid columns
