@@ -8,53 +8,164 @@
 // @import "bootstrap-grid";
 // or Import Bootstrap Reboot
 // @import "bootstrap-reboot";
-
 @import url(https://fonts.googleapis.com/css?family=Oswald);
 
 $header: 'Oswald', Arial, sans-serif;
+$navy: #2b2937;
+$linkh: 24px;
+$brand-primary-light: lighten($brand-primary, 15%);
 
-body {
+::-moz-selection,
+::selection {
+    background: #fff2a8;
 }
 
-a {
-    padding: 1px 3px;
+.skew {
+    color: #fff;
+    background: $brand-primary;
 
-    &:focus,
-    &:hover {
-        color: #fff;
-        background: $brand-primary;
+    &:before {
+        left: -$linkh/2;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: $linkh solid transparent;
+        border-right: $linkh/2 solid $brand-primary;
+        content: '';
+    }
+    &:after {
+        position: absolute;
+        right: -$linkh/2;
+        width: 0;
+        height: 0;
+        border-right: $linkh/2 solid transparent;
+        border-top: $linkh solid $brand-primary;
+        content: '';
     }
 }
 
-main {
-    margin-top: 30px;
+a {
+    line-height: $linkh;
+    height: $linkh;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    margin-left: $linkh/2;
+
+    &:hover, &:focus {
+        @extend .skew;
+    }
+    &.wide {
+        padding: 0 1rem;
+    }
+    em {
+        font-weight: bold;
+    }
+}
+em {
+    font-style: normal;
+}
+.button {
+    @extend .skew;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: -$linkh/2;
+
+    &:hover, &:focus {
+        background: $brand-primary-light;
+        &:before, &:after {
+            border-color: $brand-primary-light;
+        }
+    }
+}
+
+.amp {
+    font-family: serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $header;
+}
+
+h2 {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+}
+
+.jawb {
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+
+}
+
+#me-container {
+    padding-top: 30px;
+    background: $navy;
+    color: #fff;
 }
 
 #me {
     h1 {
-        font-family: $header;
-        font-style: italic;
         margin-bottom: 0;
+        font-weight: bold;
     }
 
     .fa {
-        background: $brand-primary;
-        border-radius: 3px;
         padding: 3px;
     }
 
     .email {
         position: relative;
-        left: -3px; // offset anchor padding
+        left: -$linkh/2;
+    }
+
+    #sup-container {
+        background: #0572c5;
+    }
+
+    #sup {
+        position: relative;
+        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+        font-style: italic;
+        font-family: serif;
+
+        transform: translateX(-100%);
+        animation: slide-in 0.5s forwards;
+        animation-delay: 1s;
+
+        &:before {
+            display: block;
+            color: $navy;
+            content: '~';
+            font-size: 4rem;
+            text-align: center;
+            line-height: 4rem;
+        }
+    }
+    .links {
+        text-align: right;
+        ul {
+            text-align: left;
+            display: inline-block;
+        }
     }
 }
 
-h2 {
-    margin-top: 1em;
+@keyframes slide-in {
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 article {
+    @include clearfix();
     margin-bottom: 2em;
+
     .header {
         @include clearfix();
     }
@@ -66,20 +177,31 @@ article {
     }
 
     .labels {
-        display:inline-block;
+        display: inline-block;
         margin-left: 1rem;
     }
     .more {
         display: inline-block;
         float: right;
     }
+    p {
+        margin-left: 1em;
+
+        span.image {
+            float: left;
+
+            margin-right: 1em;
+            margin-bottom: 1em;
+            width: 144px;
+        }
+    }
 }
 
 .loc {
     color: #aaa;
-    font-weight: normal;
-    font-style: italic;
-    font-family: serif;
+    font-size: 75%;
+    padding: .25em .4em;
+    font-weight: bold;
 
     &:after {
         content: ' LOC';
@@ -87,7 +209,17 @@ article {
 }
 
 footer {
-    margin-top: 2em;
-    text-align: right;
-    color: #999;
+    @include clearfix();
+    background: $navy;
+    color: #eee;
+    font-size: 80%;
+
+    padding: 0.5rem 0;
+    .updated {
+        float: right;
+    }
+    .contact,
+    .updated {
+        line-height: $linkh;
+    }
 }
